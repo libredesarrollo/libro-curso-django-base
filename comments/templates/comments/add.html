@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Page to add</h1>
+
+    {% comment %} <form action="add" method="POST">
+      
+        <label for="">Text:</label>
+        <textarea required name="text"></textarea>
+        {% csrf_token %}
+        <button type="submit">Send</button>
+    </form> {% endcomment %}
+
+    <form action="" method="post">
+        {{ form.text }}
+        {% csrf_token %}
+        <button type="submit">Send</button>
+    </form>
+    
+</body>
+</html>
