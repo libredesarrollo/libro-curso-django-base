@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{ form.media }}
+</head>
+<body>
+
+    <form action="" method="post">
+        {{ form.other }}
+        {{ form.calendar }}
+        
+        {% autoescape off %}
+            {{ form.custom }}
+        {% endautoescape %}
+
+        {% csrf_token %}
+        <button type="submit">Send</button>
+    </form>
+    
+
+
+</body>
+</html>

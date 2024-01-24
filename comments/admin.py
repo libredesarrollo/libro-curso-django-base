@@ -11,15 +11,15 @@ class CommentAdmin(admin.ModelAdmin):
     # ordering = ('date_posted',)
     # list_filter = ('id', 'date_posted')
     # list_editable = ('text',)
-    # fields = ('text',)
-    exclude = ('element',)
+    fields = ('text',)
+    # exclude = ('element',)
     save_as=True
     save_on_top=True
 
-    # class Media:
-    #     css = {
-    #         "all" : ['my_style.css']
-    #     }
+    class Media:
+        css = {
+            "all" : ['my_style.css']
+        }
 
 
 

@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.http import Http404
 
 from .models import Comment
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 
 # Create your views here.
 def add(request):
@@ -67,3 +67,9 @@ def delete(request, pk):
     if request.method == 'POST':
         comment.delete()
         return redirect('comments:index')
+    
+
+def contact(request):
+    
+    form = ContactForm()
+    return render(request, 'comments/contact.html', {'form':form})
