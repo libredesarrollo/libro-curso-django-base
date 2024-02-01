@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Filtros</h3>
+
+    {% load custom_tags %}
+
+    <p>{% now "jS F Y H:i" %}</p>
+
+    <p>{{ "AndRes"|lower }}</p>
+    <p>{{ "AndRes"|upper }}</p>
+    <p>{{ 5|add:"6" }}</p>
+
+    {% for a in array %}
+        <div class="{% cycle 'row1' 'row2' 'row3' %} other">
+
+        </div>
+    {% endfor %}
+
+    <p>{{ array|default:'nothing' }}</p>
+
+    <p>{{ array|length }}</p>
+
+    <p>{{ 'Andres'|length }}</p>
+
+    {{ '<button type="button">Send</button>' }}
+    {{ '<button type="button">Send</button>'|safe }}
+    {{ contentHTML }}
+    {{ contentHTML|safe }}
+
+    <p>{{ array|join:'-' }}</p>
+
+    <p>{{ "andres"|my_name:"cruz" }}</p>
+
+</body>
+</html>

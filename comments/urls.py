@@ -5,6 +5,7 @@ app_name='comments'
 urlpatterns = [
     path('add', views.add, name='add'),
     path('contact', views.contact, name='contact'),
+    path('filter', views.filter, name='filter'),
     path('', views.index, name='index'),
     path('update/<int:pk>', views.update, name='update'),
     path('delete/<int:pk>', views.delete, name='delete')

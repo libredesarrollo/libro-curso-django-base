@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
+
+{% extends "base.html" %}
+
+{% block head %}
+    {{ block.super }}
+    <style>
+        .importat{
+            color: #FF0000;
+        }
+    </style>
+{% endblock%}
+
+{% block title %}
+    Element List
+{% endblock%}
+
+{% block content %}
 
     <a href="/elements/add" target="_blank">Create</a>
 
@@ -20,7 +29,7 @@
         </tr>
         {% for e in elements %}
             <tr>
-                <td>{{e.title}}</td>
+                <td>{{forloop.last}} {{e.title}}</td>
                 <td>{{e.category.title}}</td>
                 <td>{{e.type}}</td>
                 <td>{{e.price}}</td>
@@ -29,35 +38,6 @@
         {% endfor %}
     </table>
 
-    <nav>
-        <ul class="pagination justify-content-center">
-            {% if  elements.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ elements.previous_page_number }}">Prev</a>
-                </li>
-            {% endif %}
-               
-                 <li class="page-item">
-                    {% for i in elements.paginator.page_range  %}
-                        {% if i == elements.number %}
-                            <a href="?page={{ i }}" class="page-link active">
-                                {{i}}
-                            </a>
-                        {% else %}
-                            <a href="?page={{ i }}" class="page-link">
-                                {{i}}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </li>
+    {% include "partials/pagination.html" with page_obj=elements %}
 
-            {% if  elements.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ elements.next_page_number }}">Next</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
-
-</body>
-</html>
+{% endblock %}

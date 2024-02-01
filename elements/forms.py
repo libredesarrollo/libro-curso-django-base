@@ -6,11 +6,17 @@ from django.utils.text import slugify
 from .models import Type, Category, Element
 
 class ElementForm(forms.Form):
-    title = forms.CharField(label='Title', 
-                            max_length=255, 
-                            min_length=3, 
-                            validators=[ MinLengthValidator(3, 
-                                                            message='Very short! (min %(limit_value)d) (current %(show_value)d)') ], 
+
+    # def __init__(self, *args, **kargs):
+    #     super().__init__(*args, **kargs)
+    #     self.fields["description"].widget.attrs.update(size="45")
+
+
+    title = forms.CharField(label='Title',
+                            max_length=255,
+                            min_length=3,
+                            validators=[ MinLengthValidator(3,
+                                                            message='Very short! (min %(limit_value)d) (current %(show_value)d)') ],
                                                             widget=forms.TextInput(
         attrs= {
             'class': 'form-control',
@@ -23,14 +29,16 @@ class ElementForm(forms.Form):
     type= forms.ModelChoiceField(label='Type', queryset=Type.objects.all(), initial=1)
     category= forms.ModelChoiceField(label='Category', queryset=Category.objects.all())
 
-    category.widget.attrs.update({"class": "special"})
+    # category.widget.attrs.update({ 'class':'special' })
+
+
 
     # def clean_title(self):
     #     title = self.cleaned_data['title']
     #     if Element.objects.filter(title=title).exists():
     #         raise ValidationError('Title already exist')
     #     return title
-    
+
     # def clean(self):
     #     form_data = self.cleaned_data
 

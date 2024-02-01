@@ -50,5 +50,5 @@ class CustomTextInput(forms.TextInput):
 
 class ContactForm(forms.Form):
     other = forms.CharField(widget=OtherWidget, help_text='Help text 1')
-    calendar = forms.CharField(widget=BaseAdminTimeWidget, help_text='Help text 4')
+    calendar = forms.CharField(widget=BaseAdminDateWidget, help_text='Help text 4')
     custom = forms.CharField(widget=CustomTextInput(icon='user.png'), help_text='Help text 2')
