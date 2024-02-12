@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path("", include("elements.urls"))
     path("tasks/", include("comments.urls")),
-    path("elements/", include("elements.urls"))
+    path("elements/", include("elements.urls")),
+    path("api/", include("api.urls")),
 ]
