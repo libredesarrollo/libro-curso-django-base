@@ -7,7 +7,7 @@ from . import views
 route = routers.SimpleRouter()
 
 route.register('element',ElementReadOnlyViewSet)
-route.register('element',ElementCreateUpdateDestroyViewSet)
+route.register('element2',ElementCreateUpdateDestroyViewSet)
 route.register('category',CategoryViewSet)
 route.register('type',TypeViewSet)
 route.register('comment',CommentViewSet)

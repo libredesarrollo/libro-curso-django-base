@@ -10,6 +10,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = '__all__'
+        # fields = ('id','text','count')
     
     def get_count(self, obj):
         return Comment.objects.filter(element_id = obj.element_id).count()
